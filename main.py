@@ -43,29 +43,10 @@ class DialogAddFilm(QDialog):
         self.setLayout(self.layout)
 
 
-class DialogAddGenre(QDialog):
-    def __init__(self, name):
-        super().__init__()
-        label_name = QLabel('Введите название жанра')
-        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
-        self.layout = QVBoxLayout()
-        self.inp_name = QLineEdit()
-        self.setWindowTitle("Добавить жанр")
-        self.inp_num = QSpinBox()
-        self.inp_name.setText(name)
-        self.layout.addWidget(label_name)
-        self.layout.addWidget(self.inp_name)
-        self.layout.addWidget(self.buttonBox)
-        self.setLayout(self.layout)
-
-
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        uic.loadUi('main.ui', self)
         self.con = sqlite3.connect('coffee.sqlite')
         self.open_tableFilms()
 
