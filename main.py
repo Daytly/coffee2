@@ -59,8 +59,8 @@ class DialogAddFilm(QDialog):
 class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('main.ui', self)
-        self.con = sqlite3.connect('coffee.sqlite')
+        uic.loadUi('UI/main.ui', self)
+        self.con = sqlite3.connect('Data/coffee.sqlite')
         self.open_tableFilms()
         self.popbtn.clicked.connect(self.deleteRowFilms)
         self.addbtn.clicked.connect(self.add_tableRowFilms)
